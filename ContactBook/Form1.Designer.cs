@@ -776,7 +776,7 @@
             this.groupBox1.Size = new System.Drawing.Size(604, 494);
             this.groupBox1.TabIndex = 54;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Contact Details";
             // 
             // dataGridViewTextBoxColumn1
             // 

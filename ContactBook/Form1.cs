@@ -132,5 +132,10 @@ namespace ContactBook
             }
             else { return false; }
         }
+
+        private void reducedInfoButton_Click(object sender, EventArgs e)
+        {
+            this.phone_book_tableTableAdapter.FillBy_info(phonebook_ds.phone_book_table);
+        }
     }
 }

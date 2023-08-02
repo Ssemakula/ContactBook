@@ -1110,9 +1110,9 @@
             // positionTextBoxStrip
             // 
             this.positionTextBoxStrip.AutoSize = false;
-            this.positionTextBoxStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.positionTextBoxStrip.Name = "positionTextBoxStrip";
             this.positionTextBoxStrip.Size = new System.Drawing.Size(50, 25);
+            this.positionTextBoxStrip.Leave += new System.EventHandler(this.changeRecPosition);
             // 
             // ofToolStripLabel
             // 

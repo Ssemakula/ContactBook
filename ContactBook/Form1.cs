@@ -226,9 +226,17 @@ namespace ContactBook
                 this.nextToolStipButton.Enabled = true;
                 this.lastToolStipButton.Enabled = true;
             }
+        }
+        private void changeRecPosition(object sender, EventArgs e)
+        {
+            int curposs = this.phone_book_tableBindingSource.Position;
 
+            if(int.TryParse(this.positionTextBoxStrip.Text, out int intentposs))
+            {
+                this.phone_book_tableBindingSource.Position = intentposs-1;
+            }
             
-
         }
     }
+  
 }

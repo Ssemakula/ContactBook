@@ -19,6 +19,26 @@ namespace ContactBook
             InitializeComponent();
         }
 
+        private void record_display()
+        {
+            long rec_count, rec_select;
+
+            rec_count = this.phone_book_tableBindingSource.Count;
+            rec_select = this.phone_book_tableBindingSource.Position;
+            update_counters();
+            this.diplayCountLable.Text = String.Format("Selected record {0} of {1}", rec_select + 1, rec_count);
+        }
+
+        private void recordUpdateDisplay(object sender, EventArgs e)
+        {
+            long rec_count, rec_select;
+
+            rec_count = this.phone_book_tableBindingSource.Count;
+            rec_select = this.phone_book_tableBindingSource.Position;
+            update_counters();
+            this.diplayCountLable.Text = String.Format("Selected record {0} of {1}", rec_select+1, rec_count);
+        }
+
         private void disable_Save_Cancel()
         {
             this.saveToolButton.Enabled = false;
@@ -37,6 +57,8 @@ namespace ContactBook
             this.exitToolButton.Enabled = true;
             this.search_DataGridView.Enabled = true;
             this.details_GroupBox.Enabled = false;
+            this.phoneBookToolStrip.Enabled = true;
+            update_counters() ;
         }
 
         private void disable4Edit()
@@ -49,6 +71,7 @@ namespace ContactBook
             this.exitToolButton.Enabled = false;
             this.search_DataGridView.Enabled = false;
             this.details_GroupBox.Enabled = true;
+            this.phoneBookToolStrip.Enabled = false;
         }
 
 
@@ -57,7 +80,10 @@ namespace ContactBook
             // TODO: This line of code loads data into the 'phonebook_ds.phone_book_table' table. You can move, or remove it, as needed.
             this.phone_book_tableTableAdapter.Fill_all(this.phonebook_ds.phone_book_table);
             disable_Save_Cancel();
-           
+            record_display();
+            update_counters();
+
+
         }
 
         private void phone_book_tableBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -100,6 +126,7 @@ namespace ContactBook
             this.phone_book_tableBindingSource.EndEdit();
             this.phone_book_tableTableAdapter.Update(this.phonebook_ds.phone_book_table); // returns 0 on fail ??Error check
             disable_Save_Cancel();
+            //record_display();
         }
 
         private void cancelToolButton_Click(object sender, EventArgs e)
@@ -109,6 +136,7 @@ namespace ContactBook
             this.phonebook_ds.phone_book_table.RejectChanges();
             this.phone_book_tableBindingSource.CancelEdit();
             disable_Save_Cancel();
+            record_display();
         }
 
         private void deleteToolButton_Click(object sender, EventArgs e)
@@ -120,7 +148,7 @@ namespace ContactBook
             this.cancelToolButton.Enabled = true;
             this.exitToolButton.Enabled = false;
             this.phone_book_tableBindingSource.RemoveCurrent(); // delete current record
-            
+            //record_display() ;
         }
 
         private bool is_record_Empty()
@@ -136,6 +164,71 @@ namespace ContactBook
         private void reducedInfoButton_Click(object sender, EventArgs e)
         {
             this.phone_book_tableTableAdapter.FillBy_info(phonebook_ds.phone_book_table);
+        }
+
+        private void firstToolStipButton_Click(object sender, EventArgs e)
+        {
+            this.phone_book_tableBindingSource.MoveFirst();
+            update_counters();
+        }
+
+        private void prevToolStipButton_Click(object sender, EventArgs e)
+        {
+            this.phone_book_tableBindingSource.MovePrevious();
+            update_counters();
+        }
+
+        private void nextToolStipButton_Click(object sender, EventArgs e)
+        {
+            this.phone_book_tableBindingSource.MoveNext();
+            update_counters();
+        }
+
+        private void lastToolStipButton_Click(object sender, EventArgs e)
+        {
+            this.phone_book_tableBindingSource.MoveLast();
+            update_counters();
+        }
+
+        private void update_counters()
+        {
+            int countrecs, positionrec;
+
+            countrecs = this.phone_book_tableBindingSource.Count;
+            positionrec = this.phone_book_tableBindingSource.Position + 1;
+            this.positionTextBoxStrip.Text = positionrec.ToString();
+            this.countToolStripLabel.Text = countrecs.ToString();
+            if (countrecs < 2) //have one or no records
+            { // Disable prev and first
+                this.prevToolStipButton.Enabled = false;
+                this.firstToolStipButton.Enabled=false;
+                this.nextToolStipButton.Enabled = false;
+                this.lastToolStipButton.Enabled = false;
+                return; // No need to check other things
+            }
+            if(positionrec > 1) // Not at first record
+            {
+                this.prevToolStipButton.Enabled = true;
+                this.firstToolStipButton.Enabled = true;
+            }
+            else // At first record
+            {
+                this.prevToolStipButton.Enabled = false;
+                this.firstToolStipButton.Enabled = false;
+            }
+            if(countrecs == positionrec) //At last record 
+            {
+                this.nextToolStipButton.Enabled = false;
+                this.lastToolStipButton.Enabled = false;
+            }
+            else //Not at last record
+            {
+                this.nextToolStipButton.Enabled = true;
+                this.lastToolStipButton.Enabled = true;
+            }
+
+            
+
         }
     }
 }

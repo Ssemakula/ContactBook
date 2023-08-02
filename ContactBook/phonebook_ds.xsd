@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="phone_book_tableTableAdapter" GeneratorDataComponentClassName="phone_book_tableTableAdapter" Name="phone_book_table" UserDataComponentName="phone_book_tableTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="phone_book_LessonConnection (Settings)" DbObjectName="phone_book_Lesson.dbo.phone_book_table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill_all" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill_all" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill_all">
+              <DbSource ConnectionRef="phone_book_LessonConnection (Settings)" DbObjectName="phone_book_Lesson.dbo.phone_book_table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill_all" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Fill_all" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill_all">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [phone_book_table] WHERE (([id] = @Original_id) AND ((@IsNull_first_name = 1 AND [first_name] IS NULL) OR ([first_name] = @Original_first_name)) AND ((@IsNull_last_name = 1 AND [last_name] IS NULL) OR ([last_name] = @Original_last_name)) AND ((@IsNull_customer_id = 1 AND [customer_id] IS NULL) OR ([customer_id] = @Original_customer_id)) AND ((@IsNull_income = 1 AND [income] IS NULL) OR ([income] = @Original_income)) AND ((@IsNull_debt = 1 AND [debt] IS NULL) OR ([debt] = @Original_debt)) AND ((@IsNull_birth_date = 1 AND [birth_date] IS NULL) OR ([birth_date] = @Original_birth_date)) AND ((@IsNull_gender = 1 AND [gender] IS NULL) OR ([gender] = @Original_gender)) AND ((@IsNull_education = 1 AND [education] IS NULL) OR ([education] = @Original_education)) AND ((@IsNull_study_field = 1 AND [study_field] IS NULL) OR ([study_field] = @Original_study_field)) AND ((@IsNull_cell_phone1 = 1 AND [cell_phone1] IS NULL) OR ([cell_phone1] = @Original_cell_phone1)) AND ((@IsNull_cell_phone2 = 1 AND [cell_phone2] IS NULL) OR ([cell_phone2] = @Original_cell_phone2)) AND ((@IsNull_landline1 = 1 AND [landline1] IS NULL) OR ([landline1] = @Original_landline1)) AND ((@IsNull_landline2 = 1 AND [landline2] IS NULL) OR ([landline2] = @Original_landline2)) AND ((@IsNull_fax = 1 AND [fax] IS NULL) OR ([fax] = @Original_fax)) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_web_url = 1 AND [web_url] IS NULL) OR ([web_url] = @Original_web_url)) AND ((@IsNull_country = 1 AND [country] IS NULL) OR ([country] = @Original_country)) AND ((@IsNull_state = 1 AND [state] IS NULL) OR ([state] = @Original_state)) AND ((@IsNull_city = 1 AND [city] IS NULL) OR ([city] = @Original_city)) AND ((@IsNull_zip_code = 1 AND [zip_code] IS NULL) OR ([zip_code] = @Original_zip_code)) AND ((@IsNull_address1 = 1 AND [address1] IS NULL) OR ([address1] = @Original_address1)) AND ((@IsNull_address2 = 1 AND [address2] IS NULL) OR ([address2] = @Original_address2)) AND ((@IsNull_co_name = 1 AND [co_name] IS NULL) OR ([co_name] = @Original_co_name)) AND ((@IsNull_activity = 1 AND [activity] IS NULL) OR ([activity] = @Original_activity)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))</CommandText>
@@ -71,7 +71,7 @@
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO [phone_book_table] ([first_name], [last_name], [customer_id], [income], [debt], [birth_date], [gender], [education], [study_field], [cell_phone1], [cell_phone2], [landline1], [landline2], [fax], [email], [web_url], [country], [state], [city], [zip_code], [address1], [address2], [co_name], [activity], [comment], [customer_image]) VALUES (@first_name, @last_name, @customer_id, @income, @debt, @birth_date, @gender, @education, @study_field, @cell_phone1, @cell_phone2, @landline1, @landline2, @fax, @email, @web_url, @country, @state, @city, @zip_code, @address1, @address2, @co_name, @activity, @comment, @customer_image);
-SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, activity, comment, customer_image FROM phone_book_table WHERE (id = SCOPE_IDENTITY())</CommandText>
+SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, activity, comment, customer_image FROM phone_book_table WHERE (id = SCOPE_IDENTITY()) ORDER BY co_name, last_name</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@first_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="first_name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@last_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="last_name" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -106,14 +106,15 @@ SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender,
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, 
                          activity, comment, customer_image
-FROM            phone_book_table</CommandText>
+FROM            phone_book_table
+ORDER BY co_name, last_name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>UPDATE [phone_book_table] SET [first_name] = @first_name, [last_name] = @last_name, [customer_id] = @customer_id, [income] = @income, [debt] = @debt, [birth_date] = @birth_date, [gender] = @gender, [education] = @education, [study_field] = @study_field, [cell_phone1] = @cell_phone1, [cell_phone2] = @cell_phone2, [landline1] = @landline1, [landline2] = @landline2, [fax] = @fax, [email] = @email, [web_url] = @web_url, [country] = @country, [state] = @state, [city] = @city, [zip_code] = @zip_code, [address1] = @address1, [address2] = @address2, [co_name] = @co_name, [activity] = @activity, [comment] = @comment, [customer_image] = @customer_image WHERE (([id] = @Original_id) AND ((@IsNull_first_name = 1 AND [first_name] IS NULL) OR ([first_name] = @Original_first_name)) AND ((@IsNull_last_name = 1 AND [last_name] IS NULL) OR ([last_name] = @Original_last_name)) AND ((@IsNull_customer_id = 1 AND [customer_id] IS NULL) OR ([customer_id] = @Original_customer_id)) AND ((@IsNull_income = 1 AND [income] IS NULL) OR ([income] = @Original_income)) AND ((@IsNull_debt = 1 AND [debt] IS NULL) OR ([debt] = @Original_debt)) AND ((@IsNull_birth_date = 1 AND [birth_date] IS NULL) OR ([birth_date] = @Original_birth_date)) AND ((@IsNull_gender = 1 AND [gender] IS NULL) OR ([gender] = @Original_gender)) AND ((@IsNull_education = 1 AND [education] IS NULL) OR ([education] = @Original_education)) AND ((@IsNull_study_field = 1 AND [study_field] IS NULL) OR ([study_field] = @Original_study_field)) AND ((@IsNull_cell_phone1 = 1 AND [cell_phone1] IS NULL) OR ([cell_phone1] = @Original_cell_phone1)) AND ((@IsNull_cell_phone2 = 1 AND [cell_phone2] IS NULL) OR ([cell_phone2] = @Original_cell_phone2)) AND ((@IsNull_landline1 = 1 AND [landline1] IS NULL) OR ([landline1] = @Original_landline1)) AND ((@IsNull_landline2 = 1 AND [landline2] IS NULL) OR ([landline2] = @Original_landline2)) AND ((@IsNull_fax = 1 AND [fax] IS NULL) OR ([fax] = @Original_fax)) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_web_url = 1 AND [web_url] IS NULL) OR ([web_url] = @Original_web_url)) AND ((@IsNull_country = 1 AND [country] IS NULL) OR ([country] = @Original_country)) AND ((@IsNull_state = 1 AND [state] IS NULL) OR ([state] = @Original_state)) AND ((@IsNull_city = 1 AND [city] IS NULL) OR ([city] = @Original_city)) AND ((@IsNull_zip_code = 1 AND [zip_code] IS NULL) OR ([zip_code] = @Original_zip_code)) AND ((@IsNull_address1 = 1 AND [address1] IS NULL) OR ([address1] = @Original_address1)) AND ((@IsNull_address2 = 1 AND [address2] IS NULL) OR ([address2] = @Original_address2)) AND ((@IsNull_co_name = 1 AND [co_name] IS NULL) OR ([co_name] = @Original_co_name)) AND ((@IsNull_activity = 1 AND [activity] IS NULL) OR ([activity] = @Original_activity)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)));
-SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, activity, comment, customer_image FROM phone_book_table WHERE (id = @id)</CommandText>
+SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, activity, comment, customer_image FROM phone_book_table WHERE (id = @id) ORDER BY co_name, last_name</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@first_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="first_name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@last_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="last_name" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -231,8 +232,7 @@ SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender,
               <DbSource ConnectionRef="phone_book_LessonConnection (Settings)" DbObjectName="phone_book_Lesson.dbo.phone_book_table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_info" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy_info" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy_info">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        first_name, last_name, customer_id, customer_image
-FROM            phone_book_table</CommandText>
+                    <CommandText>SELECT activity, address1, address2, birth_date, cell_phone1, cell_phone2, city, co_name, comment, country, customer_id, customer_image, debt, education, email, fax, first_name, gender, id, income, landline1, landline2, last_name, state, study_field, web_url, zip_code FROM phone_book_table</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -247,168 +247,168 @@ FROM            phone_book_table</CommandText>
   <xs:element name="phonebook_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="phonebook_ds" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="phonebook_ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="phone_book_table" msprop:Generator_RowClassName="phone_book_tableRow" msprop:Generator_RowEvHandlerName="phone_book_tableRowChangeEventHandler" msprop:Generator_RowDeletedName="phone_book_tableRowDeleted" msprop:Generator_RowDeletingName="phone_book_tableRowDeleting" msprop:Generator_RowEvArgName="phone_book_tableRowChangeEvent" msprop:Generator_TablePropName="phone_book_table" msprop:Generator_RowChangedName="phone_book_tableRowChanged" msprop:Generator_UserTableName="phone_book_table" msprop:Generator_RowChangingName="phone_book_tableRowChanging" msprop:Generator_TableClassName="phone_book_tableDataTable" msprop:Generator_TableVarName="tablephone_book_table">
+        <xs:element name="phone_book_table" msprop:Generator_RowEvHandlerName="phone_book_tableRowChangeEventHandler" msprop:Generator_RowDeletedName="phone_book_tableRowDeleted" msprop:Generator_RowDeletingName="phone_book_tableRowDeleting" msprop:Generator_RowEvArgName="phone_book_tableRowChangeEvent" msprop:Generator_TablePropName="phone_book_table" msprop:Generator_RowChangedName="phone_book_tableRowChanged" msprop:Generator_UserTableName="phone_book_table" msprop:Generator_RowChangingName="phone_book_tableRowChanging" msprop:Generator_RowClassName="phone_book_tableRow" msprop:Generator_TableClassName="phone_book_tableDataTable" msprop:Generator_TableVarName="tablephone_book_table">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:long" />
-              <xs:element name="first_name" msprop:Generator_UserColumnName="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_ColumnVarNameInTable="columnfirst_name" minOccurs="0">
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:long" />
+              <xs:element name="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_UserColumnName="first_name" msprop:Generator_ColumnVarNameInTable="columnfirst_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="last_name" msprop:Generator_UserColumnName="last_name" msprop:Generator_ColumnPropNameInTable="last_nameColumn" msprop:Generator_ColumnPropNameInRow="last_name" msprop:Generator_ColumnVarNameInTable="columnlast_name" minOccurs="0">
+              <xs:element name="last_name" msprop:Generator_ColumnPropNameInTable="last_nameColumn" msprop:Generator_ColumnPropNameInRow="last_name" msprop:Generator_UserColumnName="last_name" msprop:Generator_ColumnVarNameInTable="columnlast_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="customer_id" msprop:Generator_UserColumnName="customer_id" msprop:Generator_ColumnPropNameInTable="customer_idColumn" msprop:Generator_ColumnPropNameInRow="customer_id" msprop:Generator_ColumnVarNameInTable="columncustomer_id" minOccurs="0">
+              <xs:element name="customer_id" msprop:Generator_ColumnPropNameInTable="customer_idColumn" msprop:Generator_ColumnPropNameInRow="customer_id" msprop:Generator_UserColumnName="customer_id" msprop:Generator_ColumnVarNameInTable="columncustomer_id" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="income" msprop:Generator_UserColumnName="income" msprop:Generator_ColumnPropNameInTable="incomeColumn" msprop:Generator_ColumnPropNameInRow="income" msprop:Generator_ColumnVarNameInTable="columnincome" type="xs:long" minOccurs="0" />
-              <xs:element name="debt" msprop:Generator_UserColumnName="debt" msprop:Generator_ColumnPropNameInTable="debtColumn" msprop:Generator_ColumnPropNameInRow="debt" msprop:Generator_ColumnVarNameInTable="columndebt" type="xs:long" minOccurs="0" />
-              <xs:element name="birth_date" msprop:Generator_UserColumnName="birth_date" msprop:Generator_ColumnPropNameInTable="birth_dateColumn" msprop:Generator_ColumnPropNameInRow="birth_date" msprop:Generator_ColumnVarNameInTable="columnbirth_date" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="gender" msprop:Generator_UserColumnName="gender" msprop:Generator_ColumnPropNameInTable="genderColumn" msprop:Generator_ColumnPropNameInRow="gender" msprop:Generator_ColumnVarNameInTable="columngender" minOccurs="0">
+              <xs:element name="income" msprop:Generator_ColumnPropNameInTable="incomeColumn" msprop:Generator_ColumnPropNameInRow="income" msprop:Generator_UserColumnName="income" msprop:Generator_ColumnVarNameInTable="columnincome" type="xs:long" minOccurs="0" />
+              <xs:element name="debt" msprop:Generator_ColumnPropNameInTable="debtColumn" msprop:Generator_ColumnPropNameInRow="debt" msprop:Generator_UserColumnName="debt" msprop:Generator_ColumnVarNameInTable="columndebt" type="xs:long" minOccurs="0" />
+              <xs:element name="birth_date" msprop:Generator_ColumnPropNameInTable="birth_dateColumn" msprop:Generator_ColumnPropNameInRow="birth_date" msprop:Generator_UserColumnName="birth_date" msprop:Generator_ColumnVarNameInTable="columnbirth_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="gender" msprop:Generator_ColumnPropNameInTable="genderColumn" msprop:Generator_ColumnPropNameInRow="gender" msprop:Generator_UserColumnName="gender" msprop:Generator_ColumnVarNameInTable="columngender" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="education" msprop:Generator_UserColumnName="education" msprop:Generator_ColumnPropNameInTable="educationColumn" msprop:Generator_ColumnPropNameInRow="education" msprop:Generator_ColumnVarNameInTable="columneducation" minOccurs="0">
+              <xs:element name="education" msprop:Generator_ColumnPropNameInTable="educationColumn" msprop:Generator_ColumnPropNameInRow="education" msprop:Generator_UserColumnName="education" msprop:Generator_ColumnVarNameInTable="columneducation" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="study_field" msprop:Generator_UserColumnName="study_field" msprop:Generator_ColumnPropNameInTable="study_fieldColumn" msprop:Generator_ColumnPropNameInRow="study_field" msprop:Generator_ColumnVarNameInTable="columnstudy_field" minOccurs="0">
+              <xs:element name="study_field" msprop:Generator_ColumnPropNameInTable="study_fieldColumn" msprop:Generator_ColumnPropNameInRow="study_field" msprop:Generator_UserColumnName="study_field" msprop:Generator_ColumnVarNameInTable="columnstudy_field" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="cell_phone1" msprop:Generator_UserColumnName="cell_phone1" msprop:Generator_ColumnPropNameInTable="cell_phone1Column" msprop:Generator_ColumnPropNameInRow="cell_phone1" msprop:Generator_ColumnVarNameInTable="columncell_phone1" minOccurs="0">
+              <xs:element name="cell_phone1" msprop:Generator_ColumnPropNameInTable="cell_phone1Column" msprop:Generator_ColumnPropNameInRow="cell_phone1" msprop:Generator_UserColumnName="cell_phone1" msprop:Generator_ColumnVarNameInTable="columncell_phone1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="cell_phone2" msprop:Generator_UserColumnName="cell_phone2" msprop:Generator_ColumnPropNameInTable="cell_phone2Column" msprop:Generator_ColumnPropNameInRow="cell_phone2" msprop:Generator_ColumnVarNameInTable="columncell_phone2" minOccurs="0">
+              <xs:element name="cell_phone2" msprop:Generator_ColumnPropNameInTable="cell_phone2Column" msprop:Generator_ColumnPropNameInRow="cell_phone2" msprop:Generator_UserColumnName="cell_phone2" msprop:Generator_ColumnVarNameInTable="columncell_phone2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="landline1" msprop:Generator_UserColumnName="landline1" msprop:Generator_ColumnPropNameInTable="landline1Column" msprop:Generator_ColumnPropNameInRow="landline1" msprop:Generator_ColumnVarNameInTable="columnlandline1" minOccurs="0">
+              <xs:element name="landline1" msprop:Generator_ColumnPropNameInTable="landline1Column" msprop:Generator_ColumnPropNameInRow="landline1" msprop:Generator_UserColumnName="landline1" msprop:Generator_ColumnVarNameInTable="columnlandline1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="70" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="landline2" msprop:Generator_UserColumnName="landline2" msprop:Generator_ColumnPropNameInTable="landline2Column" msprop:Generator_ColumnPropNameInRow="landline2" msprop:Generator_ColumnVarNameInTable="columnlandline2" minOccurs="0">
+              <xs:element name="landline2" msprop:Generator_ColumnPropNameInTable="landline2Column" msprop:Generator_ColumnPropNameInRow="landline2" msprop:Generator_UserColumnName="landline2" msprop:Generator_ColumnVarNameInTable="columnlandline2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="70" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fax" msprop:Generator_UserColumnName="fax" msprop:Generator_ColumnPropNameInTable="faxColumn" msprop:Generator_ColumnPropNameInRow="fax" msprop:Generator_ColumnVarNameInTable="columnfax" minOccurs="0">
+              <xs:element name="fax" msprop:Generator_ColumnPropNameInTable="faxColumn" msprop:Generator_ColumnPropNameInRow="fax" msprop:Generator_UserColumnName="fax" msprop:Generator_ColumnVarNameInTable="columnfax" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="70" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnVarNameInTable="columnemail" minOccurs="0">
+              <xs:element name="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnVarNameInTable="columnemail" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="web_url" msprop:Generator_UserColumnName="web_url" msprop:Generator_ColumnPropNameInTable="web_urlColumn" msprop:Generator_ColumnPropNameInRow="web_url" msprop:Generator_ColumnVarNameInTable="columnweb_url" minOccurs="0">
+              <xs:element name="web_url" msprop:Generator_ColumnPropNameInTable="web_urlColumn" msprop:Generator_ColumnPropNameInRow="web_url" msprop:Generator_UserColumnName="web_url" msprop:Generator_ColumnVarNameInTable="columnweb_url" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="300" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="country" msprop:Generator_UserColumnName="country" msprop:Generator_ColumnPropNameInTable="countryColumn" msprop:Generator_ColumnPropNameInRow="country" msprop:Generator_ColumnVarNameInTable="columncountry" minOccurs="0">
+              <xs:element name="country" msprop:Generator_ColumnPropNameInTable="countryColumn" msprop:Generator_ColumnPropNameInRow="country" msprop:Generator_UserColumnName="country" msprop:Generator_ColumnVarNameInTable="columncountry" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="state" msprop:Generator_UserColumnName="state" msprop:Generator_ColumnPropNameInTable="stateColumn" msprop:Generator_ColumnPropNameInRow="state" msprop:Generator_ColumnVarNameInTable="columnstate" minOccurs="0">
+              <xs:element name="state" msprop:Generator_ColumnPropNameInTable="stateColumn" msprop:Generator_ColumnPropNameInRow="state" msprop:Generator_UserColumnName="state" msprop:Generator_ColumnVarNameInTable="columnstate" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="city" msprop:Generator_UserColumnName="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnVarNameInTable="columncity" minOccurs="0">
+              <xs:element name="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_UserColumnName="city" msprop:Generator_ColumnVarNameInTable="columncity" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="zip_code" msprop:Generator_UserColumnName="zip_code" msprop:Generator_ColumnPropNameInTable="zip_codeColumn" msprop:Generator_ColumnPropNameInRow="zip_code" msprop:Generator_ColumnVarNameInTable="columnzip_code" minOccurs="0">
+              <xs:element name="zip_code" msprop:Generator_ColumnPropNameInTable="zip_codeColumn" msprop:Generator_ColumnPropNameInRow="zip_code" msprop:Generator_UserColumnName="zip_code" msprop:Generator_ColumnVarNameInTable="columnzip_code" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="address1" msprop:Generator_UserColumnName="address1" msprop:Generator_ColumnPropNameInTable="address1Column" msprop:Generator_ColumnPropNameInRow="address1" msprop:Generator_ColumnVarNameInTable="columnaddress1" minOccurs="0">
+              <xs:element name="address1" msprop:Generator_ColumnPropNameInTable="address1Column" msprop:Generator_ColumnPropNameInRow="address1" msprop:Generator_UserColumnName="address1" msprop:Generator_ColumnVarNameInTable="columnaddress1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="address2" msprop:Generator_UserColumnName="address2" msprop:Generator_ColumnPropNameInTable="address2Column" msprop:Generator_ColumnPropNameInRow="address2" msprop:Generator_ColumnVarNameInTable="columnaddress2" minOccurs="0">
+              <xs:element name="address2" msprop:Generator_ColumnPropNameInTable="address2Column" msprop:Generator_ColumnPropNameInRow="address2" msprop:Generator_UserColumnName="address2" msprop:Generator_ColumnVarNameInTable="columnaddress2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="co_name" msprop:Generator_UserColumnName="co_name" msprop:Generator_ColumnPropNameInTable="co_nameColumn" msprop:Generator_ColumnPropNameInRow="co_name" msprop:Generator_ColumnVarNameInTable="columnco_name" minOccurs="0">
+              <xs:element name="co_name" msprop:Generator_ColumnPropNameInTable="co_nameColumn" msprop:Generator_ColumnPropNameInRow="co_name" msprop:Generator_UserColumnName="co_name" msprop:Generator_ColumnVarNameInTable="columnco_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="activity" msprop:Generator_UserColumnName="activity" msprop:Generator_ColumnPropNameInTable="activityColumn" msprop:Generator_ColumnPropNameInRow="activity" msprop:Generator_ColumnVarNameInTable="columnactivity" minOccurs="0">
+              <xs:element name="activity" msprop:Generator_ColumnPropNameInTable="activityColumn" msprop:Generator_ColumnPropNameInRow="activity" msprop:Generator_UserColumnName="activity" msprop:Generator_ColumnVarNameInTable="columnactivity" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="comment" msprop:Generator_UserColumnName="comment" msprop:Generator_ColumnPropNameInTable="commentColumn" msprop:Generator_ColumnPropNameInRow="comment" msprop:Generator_ColumnVarNameInTable="columncomment" minOccurs="0">
+              <xs:element name="comment" msprop:Generator_ColumnPropNameInTable="commentColumn" msprop:Generator_ColumnPropNameInRow="comment" msprop:Generator_UserColumnName="comment" msprop:Generator_ColumnVarNameInTable="columncomment" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="customer_image" msprop:Generator_UserColumnName="customer_image" msprop:Generator_ColumnPropNameInTable="customer_imageColumn" msprop:Generator_ColumnPropNameInRow="customer_image" msprop:Generator_ColumnVarNameInTable="columncustomer_image" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="customer_image" msprop:Generator_ColumnPropNameInTable="customer_imageColumn" msprop:Generator_ColumnPropNameInRow="customer_image" msprop:Generator_UserColumnName="customer_image" msprop:Generator_ColumnVarNameInTable="columncustomer_image" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

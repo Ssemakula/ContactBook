@@ -1973,7 +1973,7 @@ namespace ContactBook.phonebook_dsTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [phone_book_table] ([first_name], [last_name], [customer_id], [income], [debt], [birth_date], [gender], [education], [study_field], [cell_phone1], [cell_phone2], [landline1], [landline2], [fax], [email], [web_url], [country], [state], [city], [zip_code], [address1], [address2], [co_name], [activity], [comment], [customer_image]) VALUES (@first_name, @last_name, @customer_id, @income, @debt, @birth_date, @gender, @education, @study_field, @cell_phone1, @cell_phone2, @landline1, @landline2, @fax, @email, @web_url, @country, @state, @city, @zip_code, @address1, @address2, @co_name, @activity, @comment, @customer_image);
-SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, activity, comment, customer_image FROM phone_book_table WHERE (id = SCOPE_IDENTITY()) ORDER BY co_name, last_name";
+SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, activity, comment, customer_image FROM phone_book_table WHERE (id = SCOPE_IDENTITY()) ORDER BY last_name, co_name";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@first_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "first_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2042,8 +2042,8 @@ SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender,
                 "ELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender, " +
                 "education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, ema" +
                 "il, web_url, country, state, city, zip_code, address1, address2, co_name, activi" +
-                "ty, comment, customer_image FROM phone_book_table WHERE (id = @id) ORDER BY co_n" +
-                "ame, last_name";
+                "ty, comment, customer_image FROM phone_book_table WHERE (id = @id) ORDER BY last" +
+                "_name, co_name";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@first_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "first_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2141,7 +2141,7 @@ SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender,
             this._commandCollection[0].CommandText = @"SELECT        id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, 
                          activity, comment, customer_image
 FROM            phone_book_table
-ORDER BY co_name, last_name";
+ORDER BY last_name, co_name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

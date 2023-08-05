@@ -14,6 +14,8 @@ namespace ContactBook
 {
     public partial class ContactForm : Form
     {
+        bool isEditingRecord = false;
+
         public ContactForm()
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace ContactBook
 
         private void disable_Save_Cancel()
         {
+            isEditingRecord = false;
             this.saveToolButton.Enabled = false;
             this.cancelToolButton.Enabled = false;
             if (this.phonebook_ds.phone_book_table.Rows.Count == 0)
@@ -54,24 +57,27 @@ namespace ContactBook
                 this.deleteToolButton.Enabled = true;
             }
             this.newToolButton.Enabled = true;
-            this.exitToolButton.Enabled = true;
+            //this.exitToolButton.Enabled = true;
             this.search_DataGridView.Enabled = true;
             this.details_GroupBox.Enabled = false;
             this.phoneBookToolStrip.Enabled = true;
+            this.exitToolStripButton.Enabled = true;
             update_counters() ;
         }
 
         private void disable4Edit()
         {
+            isEditingRecord = true;
             this.editToolButton.Enabled = false;
             this.newToolButton.Enabled = false;
             this.deleteToolButton.Enabled = false;
             this.saveToolButton.Enabled = true;
             this.cancelToolButton.Enabled = true;
-            this.exitToolButton.Enabled = false;
+            //this.exitToolButton.Enabled = false;
             this.search_DataGridView.Enabled = false;
             this.details_GroupBox.Enabled = true;
             this.phoneBookToolStrip.Enabled = false;
+            this.exitToolStripButton.Enabled = false;
         }
 
 
@@ -105,6 +111,8 @@ namespace ContactBook
             this.details_GroupBox.Enabled = true;
             this.search_DataGridView.Enabled = false;
             this.phone_book_tableBindingSource.AddNew();
+            this.customer_image_box.Image.Dispose();
+            this.customer_image_box.Image = null;
             
         }
 
@@ -146,7 +154,8 @@ namespace ContactBook
             this.search_DataGridView.Enabled = true;
             this.saveToolButton.Enabled = true;
             this.cancelToolButton.Enabled = true;
-            this.exitToolButton.Enabled = false;
+            //this.exitToolButton.Enabled = false;
+            this.exitToolStripButton.Enabled = false;
             this.phone_book_tableBindingSource.RemoveCurrent(); // delete current record
             //record_display() ;
         }
@@ -236,6 +245,26 @@ namespace ContactBook
                 this.phone_book_tableBindingSource.Position = intentposs-1;
             }
             
+        }
+
+        private void changeimage(object sender, EventArgs e)
+        {
+            if (!isEditingRecord)
+                return;
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            string fn; //Don't think I need this
+
+            ofd.Filter = "Image files | *.png;*.bmp;*.jpg;*.gif";
+            if(ofd.ShowDialog() == DialogResult.OK )
+            {
+                //fn = ofd.FileName;
+                this.customer_image_box.Image = Image.FromFile(ofd.FileName);
+            }
+            else
+            {
+                MyBeep();
+            }
         }
     }
   

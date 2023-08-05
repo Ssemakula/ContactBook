@@ -56,8 +56,6 @@
             System.Windows.Forms.Label commentLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactForm));
             this.phone_book_tableBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.phone_book_tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.phonebook_ds = new ContactBook.phonebook_ds();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
@@ -65,8 +63,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.search_DataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.co_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.first_nameTextBox = new System.Windows.Forms.TextBox();
             this.last_nameTextBox = new System.Windows.Forms.TextBox();
@@ -95,26 +91,12 @@
             this.commentTextBox = new System.Windows.Forms.TextBox();
             this.details_GroupBox = new System.Windows.Forms.GroupBox();
             this.menuToolStrip = new System.Windows.Forms.ToolStrip();
-            this.topBindNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.diplayCountLable = new System.Windows.Forms.Label();
-            this.phone_book_tableTableAdapter = new ContactBook.phonebook_dsTableAdapters.phone_book_tableTableAdapter();
-            this.tableAdapterManager = new ContactBook.phonebook_dsTableAdapters.TableAdapterManager();
-            this.phoneBookToolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolButton = new System.Windows.Forms.ToolStripButton();
             this.editToolButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolButton = new System.Windows.Forms.ToolStripButton();
             this.cancelToolButton = new System.Windows.Forms.ToolStripButton();
-            this.exitToolButton = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -123,14 +105,36 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.phone_book_tableBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.reducedInfoButton = new System.Windows.Forms.ToolStripButton();
+            this.pixGroupBox = new System.Windows.Forms.GroupBox();
+            this.customer_image_box = new System.Windows.Forms.PictureBox();
+            this.phone_book_tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.phonebook_ds = new ContactBook.phonebook_ds();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone_book_tableTableAdapter = new ContactBook.phonebook_dsTableAdapters.phone_book_tableTableAdapter();
+            this.tableAdapterManager = new ContactBook.phonebook_dsTableAdapters.TableAdapterManager();
             this.firstToolStipButton = new System.Windows.Forms.ToolStripButton();
             this.prevToolStipButton = new System.Windows.Forms.ToolStripButton();
-            this.nextToolStipButton = new System.Windows.Forms.ToolStripButton();
-            this.lastToolStipButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.positionTextBoxStrip = new System.Windows.Forms.ToolStripTextBox();
             this.ofToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.countToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.nextToolStipButton = new System.Windows.Forms.ToolStripButton();
+            this.lastToolStipButton = new System.Windows.Forms.ToolStripButton();
+            this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.phoneBookToolStrip = new System.Windows.Forms.ToolStrip();
+            this.exitToolButton = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.topBindNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             first_nameLabel = new System.Windows.Forms.Label();
             last_nameLabel = new System.Windows.Forms.Label();
             customer_idLabel = new System.Windows.Forms.Label();
@@ -158,14 +162,16 @@
             commentLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.phone_book_tableBindingNavigator)).BeginInit();
             this.phone_book_tableBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.phone_book_tableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phonebook_ds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.search_DataGridView)).BeginInit();
             this.details_GroupBox.SuspendLayout();
             this.menuToolStrip.SuspendLayout();
+            this.pixGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customer_image_box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phone_book_tableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phonebook_ds)).BeginInit();
+            this.phoneBookToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topBindNavigator)).BeginInit();
             this.topBindNavigator.SuspendLayout();
-            this.phoneBookToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // first_nameLabel
@@ -422,19 +428,9 @@
             this.phone_book_tableBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.phone_book_tableBindingNavigator.Name = "phone_book_tableBindingNavigator";
             this.phone_book_tableBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.phone_book_tableBindingNavigator.Size = new System.Drawing.Size(995, 25);
+            this.phone_book_tableBindingNavigator.Size = new System.Drawing.Size(1250, 25);
             this.phone_book_tableBindingNavigator.TabIndex = 0;
             this.phone_book_tableBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // phone_book_tableBindingSource
-            // 
-            this.phone_book_tableBindingSource.DataMember = "phone_book_table";
-            this.phone_book_tableBindingSource.DataSource = this.phonebook_ds;
-            // 
-            // phonebook_ds
-            // 
-            this.phonebook_ds.DataSetName = "phonebook_ds";
-            this.phonebook_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -493,20 +489,6 @@
             this.search_DataGridView.Size = new System.Drawing.Size(342, 473);
             this.search_DataGridView.TabIndex = 1;
             this.search_DataGridView.SelectionChanged += new System.EventHandler(this.recordUpdateDisplay);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "first_name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "First Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "last_name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Last Name";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // co_name
             // 
@@ -718,6 +700,7 @@
             // 
             // details_GroupBox
             // 
+            this.details_GroupBox.Controls.Add(this.pixGroupBox);
             this.details_GroupBox.Controls.Add(this.first_nameTextBox);
             this.details_GroupBox.Controls.Add(commentLabel);
             this.details_GroupBox.Controls.Add(activityLabel);
@@ -771,7 +754,7 @@
             this.details_GroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.details_GroupBox.Location = new System.Drawing.Point(384, 71);
             this.details_GroupBox.Name = "details_GroupBox";
-            this.details_GroupBox.Size = new System.Drawing.Size(604, 494);
+            this.details_GroupBox.Size = new System.Drawing.Size(810, 494);
             this.details_GroupBox.TabIndex = 54;
             this.details_GroupBox.TabStop = false;
             this.details_GroupBox.Text = "Contact Details";
@@ -788,72 +771,11 @@
             this.saveToolButton,
             this.cancelToolButton,
             this.exitToolButton});
-            this.menuToolStrip.Location = new System.Drawing.Point(229, 36);
+            this.menuToolStrip.Location = new System.Drawing.Point(484, 36);
             this.menuToolStrip.Name = "menuToolStrip";
             this.menuToolStrip.Size = new System.Drawing.Size(756, 36);
             this.menuToolStrip.TabIndex = 55;
             this.menuToolStrip.Text = "toolStrip1";
-            // 
-            // topBindNavigator
-            // 
-            this.topBindNavigator.AddNewItem = null;
-            this.topBindNavigator.AutoSize = false;
-            this.topBindNavigator.BindingSource = this.phone_book_tableBindingSource;
-            this.topBindNavigator.CountItem = this.bindingNavigatorCountItem1;
-            this.topBindNavigator.DeleteItem = null;
-            this.topBindNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.topBindNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem1,
-            this.bindingNavigatorMovePreviousItem1,
-            this.bindingNavigatorSeparator3,
-            this.bindingNavigatorPositionItem1,
-            this.bindingNavigatorCountItem1,
-            this.bindingNavigatorSeparator4,
-            this.bindingNavigatorMoveNextItem1,
-            this.bindingNavigatorMoveLastItem1,
-            this.bindingNavigatorSeparator5});
-            this.topBindNavigator.Location = new System.Drawing.Point(9, 36);
-            this.topBindNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
-            this.topBindNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
-            this.topBindNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem1;
-            this.topBindNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
-            this.topBindNavigator.Name = "topBindNavigator";
-            this.topBindNavigator.PositionItem = this.bindingNavigatorPositionItem1;
-            this.topBindNavigator.Size = new System.Drawing.Size(220, 36);
-            this.topBindNavigator.TabIndex = 56;
-            this.topBindNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem1
-            // 
-            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
-            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 33);
-            this.bindingNavigatorCountItem1.Text = "of {0}";
-            this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator3
-            // 
-            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
-            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 36);
-            // 
-            // bindingNavigatorPositionItem1
-            // 
-            this.bindingNavigatorPositionItem1.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem1.AutoSize = false;
-            this.bindingNavigatorPositionItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
-            this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem1.Text = "0";
-            this.bindingNavigatorPositionItem1.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator4
-            // 
-            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
-            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 36);
-            // 
-            // bindingNavigatorSeparator5
-            // 
-            this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
-            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 36);
             // 
             // diplayCountLable
             // 
@@ -862,33 +784,6 @@
             this.diplayCountLable.Name = "diplayCountLable";
             this.diplayCountLable.Size = new System.Drawing.Size(0, 13);
             this.diplayCountLable.TabIndex = 57;
-            // 
-            // phone_book_tableTableAdapter
-            // 
-            this.phone_book_tableTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.phone_book_tableTableAdapter = this.phone_book_tableTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ContactBook.phonebook_dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // phoneBookToolStrip
-            // 
-            this.phoneBookToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.firstToolStipButton,
-            this.prevToolStipButton,
-            this.positionTextBoxStrip,
-            this.ofToolStripLabel,
-            this.countToolStripLabel,
-            this.nextToolStipButton,
-            this.lastToolStipButton,
-            this.toolStripButton1});
-            this.phoneBookToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.phoneBookToolStrip.Name = "phoneBookToolStrip";
-            this.phoneBookToolStrip.Size = new System.Drawing.Size(995, 25);
-            this.phoneBookToolStrip.TabIndex = 58;
-            this.phoneBookToolStrip.Text = "toolStrip1";
             // 
             // newToolButton
             // 
@@ -939,53 +834,6 @@
             this.cancelToolButton.Text = "Cancel";
             this.cancelToolButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.cancelToolButton.Click += new System.EventHandler(this.cancelToolButton_Click);
-            // 
-            // exitToolButton
-            // 
-            this.exitToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.exitToolButton.Image = global::ContactBook.Properties.Resources.exit;
-            this.exitToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.exitToolButton.Name = "exitToolButton";
-            this.exitToolButton.Size = new System.Drawing.Size(23, 33);
-            this.exitToolButton.Text = "Exit";
-            this.exitToolButton.Click += new System.EventHandler(this.exitToolButton_Click);
-            // 
-            // bindingNavigatorMoveFirstItem1
-            // 
-            this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
-            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
-            this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 33);
-            this.bindingNavigatorMoveFirstItem1.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem1
-            // 
-            this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
-            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
-            this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 33);
-            this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
-            // 
-            // bindingNavigatorMoveNextItem1
-            // 
-            this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
-            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
-            this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 33);
-            this.bindingNavigatorMoveNextItem1.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem1
-            // 
-            this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
-            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
-            this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 33);
-            this.bindingNavigatorMoveLastItem1.Text = "Move last";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -1057,6 +905,63 @@
             this.reducedInfoButton.Text = "Show Reduced Info";
             this.reducedInfoButton.Click += new System.EventHandler(this.reducedInfoButton_Click);
             // 
+            // pixGroupBox
+            // 
+            this.pixGroupBox.Controls.Add(this.customer_image_box);
+            this.pixGroupBox.Location = new System.Drawing.Point(615, 25);
+            this.pixGroupBox.Name = "pixGroupBox";
+            this.pixGroupBox.Size = new System.Drawing.Size(169, 303);
+            this.pixGroupBox.TabIndex = 50;
+            this.pixGroupBox.TabStop = false;
+            this.pixGroupBox.Text = "Picture";
+            // 
+            // customer_image_box
+            // 
+            this.customer_image_box.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.customer_image_box.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.phone_book_tableBindingSource, "customer_image", true));
+            this.customer_image_box.Image = global::ContactBook.Properties.Resources.empty_box_package_icon;
+            this.customer_image_box.Location = new System.Drawing.Point(15, 26);
+            this.customer_image_box.Name = "customer_image_box";
+            this.customer_image_box.Size = new System.Drawing.Size(138, 118);
+            this.customer_image_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.customer_image_box.TabIndex = 0;
+            this.customer_image_box.TabStop = false;
+            this.customer_image_box.DoubleClick += new System.EventHandler(this.changeimage);
+            // 
+            // phone_book_tableBindingSource
+            // 
+            this.phone_book_tableBindingSource.DataMember = "phone_book_table";
+            this.phone_book_tableBindingSource.DataSource = this.phonebook_ds;
+            // 
+            // phonebook_ds
+            // 
+            this.phonebook_ds.DataSetName = "phonebook_ds";
+            this.phonebook_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "first_name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "First Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "last_name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Last Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // phone_book_tableTableAdapter
+            // 
+            this.phone_book_tableTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.phone_book_tableTableAdapter = this.phone_book_tableTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ContactBook.phonebook_dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // firstToolStipButton
             // 
             this.firstToolStipButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1075,6 +980,36 @@
             this.prevToolStipButton.Size = new System.Drawing.Size(23, 22);
             this.prevToolStipButton.Text = "toolStripButton2";
             this.prevToolStipButton.Click += new System.EventHandler(this.prevToolStipButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // positionTextBoxStrip
+            // 
+            this.positionTextBoxStrip.AutoSize = false;
+            this.positionTextBoxStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.positionTextBoxStrip.Name = "positionTextBoxStrip";
+            this.positionTextBoxStrip.Size = new System.Drawing.Size(50, 25);
+            this.positionTextBoxStrip.Leave += new System.EventHandler(this.changeRecPosition);
+            // 
+            // ofToolStripLabel
+            // 
+            this.ofToolStripLabel.Name = "ofToolStripLabel";
+            this.ofToolStripLabel.Size = new System.Drawing.Size(18, 22);
+            this.ofToolStripLabel.Text = "of";
+            // 
+            // countToolStripLabel
+            // 
+            this.countToolStripLabel.Name = "countToolStripLabel";
+            this.countToolStripLabel.Size = new System.Drawing.Size(13, 22);
+            this.countToolStripLabel.Text = "1";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // nextToolStipButton
             // 
@@ -1096,41 +1031,148 @@
             this.lastToolStipButton.Text = "toolStripButton4";
             this.lastToolStipButton.Click += new System.EventHandler(this.lastToolStipButton_Click);
             // 
-            // toolStripButton1
+            // exitToolStripButton
             // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::ContactBook.Properties.Resources.exit;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.exitToolButton_Click);
+            this.exitToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.exitToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.exitToolStripButton.Image = global::ContactBook.Properties.Resources.exit;
+            this.exitToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exitToolStripButton.Name = "exitToolStripButton";
+            this.exitToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.exitToolStripButton.Text = "toolStripButton1";
+            this.exitToolStripButton.Click += new System.EventHandler(this.exitToolButton_Click);
             // 
-            // positionTextBoxStrip
+            // phoneBookToolStrip
             // 
-            this.positionTextBoxStrip.AutoSize = false;
-            this.positionTextBoxStrip.Name = "positionTextBoxStrip";
-            this.positionTextBoxStrip.Size = new System.Drawing.Size(50, 25);
-            this.positionTextBoxStrip.Leave += new System.EventHandler(this.changeRecPosition);
+            this.phoneBookToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.firstToolStipButton,
+            this.prevToolStipButton,
+            this.toolStripSeparator2,
+            this.positionTextBoxStrip,
+            this.ofToolStripLabel,
+            this.countToolStripLabel,
+            this.toolStripSeparator3,
+            this.nextToolStipButton,
+            this.lastToolStipButton,
+            this.exitToolStripButton});
+            this.phoneBookToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.phoneBookToolStrip.Name = "phoneBookToolStrip";
+            this.phoneBookToolStrip.Size = new System.Drawing.Size(1250, 25);
+            this.phoneBookToolStrip.TabIndex = 58;
+            this.phoneBookToolStrip.Text = "toolStrip1";
             // 
-            // ofToolStripLabel
+            // exitToolButton
             // 
-            this.ofToolStripLabel.Name = "ofToolStripLabel";
-            this.ofToolStripLabel.Size = new System.Drawing.Size(18, 22);
-            this.ofToolStripLabel.Text = "of";
+            this.exitToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.exitToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.exitToolButton.Image = global::ContactBook.Properties.Resources.exit;
+            this.exitToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exitToolButton.Name = "exitToolButton";
+            this.exitToolButton.Size = new System.Drawing.Size(23, 33);
+            this.exitToolButton.Text = "Exit";
             // 
-            // countToolStripLabel
+            // bindingNavigatorMoveFirstItem1
             // 
-            this.countToolStripLabel.Name = "countToolStripLabel";
-            this.countToolStripLabel.Size = new System.Drawing.Size(13, 22);
-            this.countToolStripLabel.Text = "1";
+            this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
+            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
+            this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 33);
+            this.bindingNavigatorMoveFirstItem1.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem1
+            // 
+            this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
+            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
+            this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 33);
+            this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator3
+            // 
+            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
+            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 36);
+            // 
+            // bindingNavigatorPositionItem1
+            // 
+            this.bindingNavigatorPositionItem1.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem1.AutoSize = false;
+            this.bindingNavigatorPositionItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
+            this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem1.Text = "0";
+            this.bindingNavigatorPositionItem1.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorCountItem1
+            // 
+            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 33);
+            this.bindingNavigatorCountItem1.Text = "of {0}";
+            this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorSeparator4
+            // 
+            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
+            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 36);
+            // 
+            // bindingNavigatorMoveNextItem1
+            // 
+            this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
+            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
+            this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 33);
+            this.bindingNavigatorMoveNextItem1.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem1
+            // 
+            this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
+            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
+            this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 33);
+            this.bindingNavigatorMoveLastItem1.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator5
+            // 
+            this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
+            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 36);
+            // 
+            // topBindNavigator
+            // 
+            this.topBindNavigator.AddNewItem = null;
+            this.topBindNavigator.AutoSize = false;
+            this.topBindNavigator.BindingSource = this.phone_book_tableBindingSource;
+            this.topBindNavigator.CountItem = this.bindingNavigatorCountItem1;
+            this.topBindNavigator.DeleteItem = null;
+            this.topBindNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.topBindNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem1,
+            this.bindingNavigatorMovePreviousItem1,
+            this.bindingNavigatorSeparator3,
+            this.bindingNavigatorPositionItem1,
+            this.bindingNavigatorCountItem1,
+            this.bindingNavigatorSeparator4,
+            this.bindingNavigatorMoveNextItem1,
+            this.bindingNavigatorMoveLastItem1,
+            this.bindingNavigatorSeparator5});
+            this.topBindNavigator.Location = new System.Drawing.Point(9, 36);
+            this.topBindNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
+            this.topBindNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
+            this.topBindNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem1;
+            this.topBindNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
+            this.topBindNavigator.Name = "topBindNavigator";
+            this.topBindNavigator.PositionItem = this.bindingNavigatorPositionItem1;
+            this.topBindNavigator.Size = new System.Drawing.Size(220, 36);
+            this.topBindNavigator.TabIndex = 56;
+            this.topBindNavigator.Text = "bindingNavigator1";
             // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 605);
+            this.ClientSize = new System.Drawing.Size(1250, 605);
             this.Controls.Add(this.diplayCountLable);
             this.Controls.Add(this.menuToolStrip);
             this.Controls.Add(this.topBindNavigator);
@@ -1148,18 +1190,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.phone_book_tableBindingNavigator)).EndInit();
             this.phone_book_tableBindingNavigator.ResumeLayout(false);
             this.phone_book_tableBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.phone_book_tableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phonebook_ds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.search_DataGridView)).EndInit();
             this.details_GroupBox.ResumeLayout(false);
             this.details_GroupBox.PerformLayout();
             this.menuToolStrip.ResumeLayout(false);
             this.menuToolStrip.PerformLayout();
+            this.pixGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.customer_image_box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phone_book_tableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phonebook_ds)).EndInit();
+            this.phoneBookToolStrip.ResumeLayout(false);
+            this.phoneBookToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topBindNavigator)).EndInit();
             this.topBindNavigator.ResumeLayout(false);
             this.topBindNavigator.PerformLayout();
-            this.phoneBookToolStrip.ResumeLayout(false);
-            this.phoneBookToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1217,32 +1261,36 @@
         private System.Windows.Forms.ToolStripButton deleteToolButton;
         private System.Windows.Forms.ToolStripButton saveToolButton;
         private System.Windows.Forms.ToolStripButton cancelToolButton;
-        private System.Windows.Forms.ToolStripButton exitToolButton;
         private System.Windows.Forms.ToolStripButton reducedInfoButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.BindingNavigator topBindNavigator;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn co_name;
         private System.Windows.Forms.Label diplayCountLable;
-        private System.Windows.Forms.ToolStrip phoneBookToolStrip;
+        private System.Windows.Forms.GroupBox pixGroupBox;
+        private System.Windows.Forms.PictureBox customer_image_box;
         private System.Windows.Forms.ToolStripButton firstToolStipButton;
         private System.Windows.Forms.ToolStripButton prevToolStipButton;
-        private System.Windows.Forms.ToolStripButton nextToolStipButton;
-        private System.Windows.Forms.ToolStripButton lastToolStipButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripTextBox positionTextBoxStrip;
         private System.Windows.Forms.ToolStripLabel ofToolStripLabel;
         private System.Windows.Forms.ToolStripLabel countToolStripLabel;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton nextToolStipButton;
+        private System.Windows.Forms.ToolStripButton lastToolStipButton;
+        private System.Windows.Forms.ToolStripButton exitToolStripButton;
+        private System.Windows.Forms.ToolStrip phoneBookToolStrip;
+        private System.Windows.Forms.ToolStripButton exitToolButton;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem1;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
+        private System.Windows.Forms.BindingNavigator topBindNavigator;
     }
 }
 

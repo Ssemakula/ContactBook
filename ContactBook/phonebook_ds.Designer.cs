@@ -2155,7 +2155,8 @@ FROM            phone_book_table
 WHERE        (CHARINDEX(@search_value, last_name, 0) > 0) OR
                          (CHARINDEX(@search_value, first_name, 0) > 0) OR
                          (CHARINDEX(@search_value, co_name, 0) > 0)
-ORDER BY last_name, co_name";
+ORDER BY last_name, co_name
+";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search_value", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();

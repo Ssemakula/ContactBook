@@ -44,23 +44,23 @@ namespace ContactBook
         private void disable_Save_Cancel()
         {
             isEditingRecord = false;
-            this.saveToolButton.Enabled = false;
-            this.cancelToolButton.Enabled = false;
+            this.saveStripButton.Enabled = false;
+            this.cancelStripButton.Enabled = false;
             if (this.phonebook_ds.phone_book_table.Rows.Count == 0)
             {
-                this.editToolButton.Enabled = false;
-                this.deleteToolButton.Enabled = false;
+                this.editStripButton.Enabled = false;
+                this.deleteStripButton.Enabled = false;
             }
             else
             {
-                this.editToolButton.Enabled = true;
-                this.deleteToolButton.Enabled = true;
+                this.editStripButton.Enabled = true;
+                this.deleteStripButton.Enabled = true;
             }
-            this.newToolButton.Enabled = true;
+            this.newStripButton.Enabled = true;
             //this.exitToolButton.Enabled = true;
             this.search_DataGridView.Enabled = true;
             this.details_GroupBox.Enabled = false;
-            this.phoneBookToolStrip.Enabled = true;
+            //this.phoneBookToolStrip.Enabled = true; //Always enabled
             this.exitToolStripButton.Enabled = true;
             //Enable search option
             this.notCheckBox.Enabled = true;
@@ -71,15 +71,15 @@ namespace ContactBook
         private void disable4Edit()
         {
             isEditingRecord = true;
-            this.editToolButton.Enabled = false;
-            this.newToolButton.Enabled = false;
-            this.deleteToolButton.Enabled = false;
-            this.saveToolButton.Enabled = true;
-            this.cancelToolButton.Enabled = true;
+            this.editStripButton.Enabled = false;
+            this.newStripButton.Enabled = false;
+            this.deleteStripButton.Enabled = false;
+            this.saveStripButton.Enabled = true;
+            this.cancelStripButton.Enabled = true;
             //this.exitToolButton.Enabled = false;
             this.search_DataGridView.Enabled = false;
             this.details_GroupBox.Enabled = true;
-            this.phoneBookToolStrip.Enabled = false;
+            // this.phoneBookToolStrip.Enabled = false; //Always enabled
             this.exitToolStripButton.Enabled = false;
             //Disable search while in edit mode
             this.notCheckBox.Enabled = false;
@@ -155,11 +155,11 @@ namespace ContactBook
 
         private void deleteToolButton_Click(object sender, EventArgs e)
         {
-            this.editToolButton.Enabled = false;
-            this.newToolButton.Enabled = false;
+            this.editStripButton.Enabled = false;
+            this.newStripButton.Enabled = false;
             this.search_DataGridView.Enabled = true;
-            this.saveToolButton.Enabled = true;
-            this.cancelToolButton.Enabled = true;
+            this.saveStripButton.Enabled = true;
+            this.cancelStripButton.Enabled = true;
             //this.exitToolButton.Enabled = false;
             this.exitToolStripButton.Enabled = false;
             this.phone_book_tableBindingSource.RemoveCurrent(); // delete current record

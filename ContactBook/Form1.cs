@@ -62,6 +62,9 @@ namespace ContactBook
             this.details_GroupBox.Enabled = false;
             this.phoneBookToolStrip.Enabled = true;
             this.exitToolStripButton.Enabled = true;
+            //Enable search option
+            this.notCheckBox.Enabled = true;
+            this.searchTextBox.Enabled = true;
             update_counters() ;
         }
 
@@ -78,13 +81,17 @@ namespace ContactBook
             this.details_GroupBox.Enabled = true;
             this.phoneBookToolStrip.Enabled = false;
             this.exitToolStripButton.Enabled = false;
+            //Disable search while in edit mode
+            this.notCheckBox.Enabled = false;
+            this.searchTextBox.Enabled = false;
         }
 
 
         private void ContactForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'phonebook_ds.phone_book_table' table. You can move, or remove it, as needed.
-            this.phone_book_tableTableAdapter.Fill_all(this.phonebook_ds.phone_book_table);
+            //this.phone_book_tableTableAdapter.Fill_all(this.phonebook_ds.phone_book_table);
+            showItems();
             disable_Save_Cancel();
             record_display();
             update_counters();
@@ -111,7 +118,8 @@ namespace ContactBook
             this.details_GroupBox.Enabled = true;
             this.search_DataGridView.Enabled = false;
             this.phone_book_tableBindingSource.AddNew();
-            this.customer_image_box.Image.Dispose();
+            if (this.customer_image_box.Image != null) // Check if there is an image, first, before disposing it
+                this.customer_image_box.Image.Dispose();
             this.customer_image_box.Image = null;
             
         }
@@ -123,8 +131,6 @@ namespace ContactBook
                 return;
             }
             disable4Edit();
-            
-            
         }
 
         private void saveToolButton_Click(object sender, EventArgs e)
@@ -253,7 +259,7 @@ namespace ContactBook
                 return;
 
             OpenFileDialog ofd = new OpenFileDialog();
-            string fn; //Don't think I need this
+            //string fn; //Don't think I need this
 
             ofd.Filter = "Image files | *.png;*.bmp;*.jpg;*.gif";
             if(ofd.ShowDialog() == DialogResult.OK )
@@ -266,6 +272,25 @@ namespace ContactBook
                 MyBeep();
             }
         }
+
+        private void showItems() //Shows items
+        {
+            if (this.searchTextBox.Text.Trim().Length > 0)
+            {
+                if (!notCheckBox.Checked)
+                    this.phone_book_tableTableAdapter.FillBy_Search(this.phonebook_ds.phone_book_table, this.searchTextBox.Text.Trim());
+                else
+                    this.phone_book_tableTableAdapter.FillBy_SearchNot(this.phonebook_ds.phone_book_table, this.searchTextBox.Text.Trim());
+            }
+            else
+                this.phone_book_tableTableAdapter.Fill_all(this.phonebook_ds.phone_book_table);
+        }
+
+        private void searchItems(object sender, EventArgs e) //there so we can use an event handler
+        {
+            showItems();
+        }
+
     }
   
 }

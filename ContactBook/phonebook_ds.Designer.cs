@@ -2135,7 +2135,7 @@ SELECT id, first_name, last_name, customer_id, income, debt, birth_date, gender,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, 
@@ -2147,6 +2147,26 @@ ORDER BY last_name, co_name";
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT activity, address1, address2, birth_date, cell_phone1, cell_phone2, city, co_name, comment, country, customer_id, customer_image, debt, education, email, fax, first_name, gender, id, income, landline1, landline2, last_name, state, study_field, web_url, zip_code FROM phone_book_table";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, 
+                         activity, comment, customer_image
+FROM            phone_book_table
+WHERE        (CHARINDEX(@search_value, last_name, 0) > 0) OR
+                         (CHARINDEX(@search_value, first_name, 0) > 0) OR
+                         (CHARINDEX(@search_value, co_name, 0) > 0)
+ORDER BY last_name, co_name";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search_value", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        id, first_name, last_name, customer_id, income, debt, birth_date, gender, education, study_field, cell_phone1, cell_phone2, landline1, landline2, fax, email, web_url, country, state, city, zip_code, address1, address2, co_name, 
+                         activity, comment, customer_image
+FROM            phone_book_table
+WHERE        (last_name is null or CHARINDEX(@search_value, last_name, 0) = 0) AND (first_name is null or CHARINDEX(@search_value, first_name, 0) = 0) AND (co_name is null or CHARINDEX(@search_value, co_name, 0) = 0)
+ORDER BY last_name, co_name";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search_value", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2168,6 +2188,44 @@ ORDER BY last_name, co_name";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy_info(phonebook_ds.phone_book_tableDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_Search(phonebook_ds.phone_book_tableDataTable dataTable, string search_value) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((search_value == null)) {
+                throw new global::System.ArgumentNullException("search_value");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search_value));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_SearchNot(phonebook_ds.phone_book_tableDataTable dataTable, string search_value) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((search_value == null)) {
+                throw new global::System.ArgumentNullException("search_value");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search_value));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
